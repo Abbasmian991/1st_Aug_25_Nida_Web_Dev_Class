@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle,#1a1a1a);
+    
+}
+.spinner {
+    width: 200px;
+    height: 200px;
+    border: 10px solid transparent;
+    border-top: 10px solid #ff6b6b;
+    border-right:10px solid #4ecdc4;
+    border-radius: 100%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+
+    transform-style: preserve-3d;
+}
+
+@keyframes spin{
+    0% {
+        transform: rotateX(80deg)rotateY(0deg);
+    }
+    100% {
+      transform: rotateX(80deg)rotateY(360deg);
+
+        }
+    }

@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradiant(circle, #1a1a1a);
+    overflow: hidden;
+
+}
+
+.scene {
+    perspective: 800px;
+    width: 200px;
+    height: 200px;
+}
+.cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate 8s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(183,255,0,0.5);
+    border: 2px solid #00ff77;
+    box-shadow: 0 0 20px rgba(211,250,160,0.5);
+    transition: transform 0.3s;
+}
+.front 
+             { transform: translateZ(100px); }
+.back        {transform: translateZ(-100px)rotate(180deg);}
+.left        {transform: translateX(-100px)rotate(-90deg);}
+.right       {transform: translateX(-100px)rotate(-90deg);}
+.top         {transform:  translateY(-100px)rotate(90deg);}
+.bottom      {transform: translateY(100px)rotate(-90deg);}
+
+@keyframes rotate {
+    0% {transform: rotateX(0deg) rotateY(0deg)}
+    100% {transform: rotateX(360deg) rotateY(360deg);}
+}
+
+.cube:hover .face{
+    box-shadow: 0 0 30px rgba(0,255,255,1);
+    background: rgba(0,128,255,0.8);
+}
+       
+.glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle,rgba(255,255,255,0.5));
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite ease-in-out;
+    z-index: -1;
+}
+@keyframes pulse {
+    0% {transform:translate(-50%, -50%) scale(1);opacity: 0.5;}
+    50% {transform: translate(-50%, -50%) scale(1.2); opacity: 1;}
+    100% {transform: translate(-50%, -50%) scale(1); opacity: 0.5;}
+    
+}
